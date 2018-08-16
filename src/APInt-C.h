@@ -8,15 +8,7 @@ extern "C" {
 #endif
 #include "dtypes.h"
 
-#ifdef LLVM_VERSION_MAJOR
-#  if JL_LLVM_VERSION >= 50000
 using integerPart = llvm::APInt::WordType;
-#  else
-using llvm::integerPart;
-#  endif
-#else
-typedef void integerPart;
-#endif
 
 JL_DLLEXPORT void LLVMNeg(unsigned numbits, integerPart *pa, integerPart *pr);
 JL_DLLEXPORT void LLVMByteSwap(unsigned numbits, integerPart *pa, integerPart *pr);
